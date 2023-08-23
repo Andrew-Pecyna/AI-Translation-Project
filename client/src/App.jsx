@@ -1,19 +1,27 @@
 import { styled } from "styled-components"
+import { useState } from "react"
 
 function App() {
+
+  const [userText, setUserText] = useState("")
+
+  const submitForm = (e) => {
+    e.preventDefault()
+    console.log("submit", userText)
+  }
 
   return (
     <Container>
       <h1>Translate text with Open AI</h1>
-      <form>
+      <form onSubmit={submitForm}>
         <InputsBox>
-          <input
-          type="text"
+          <textarea
           name="user-text"
           placeholder="Enter text here"
+          onChange={(e) => setUserText(e.target.value)}
           />
           <br></br>
-          <input type="text" value="Generate translation" />
+          <input type="submit" value="Generate translation" />
         </InputsBox>
       </form>
     </Container>
