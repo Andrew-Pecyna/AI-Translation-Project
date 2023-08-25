@@ -5,9 +5,24 @@ function App() {
 
   const [userText, setUserText] = useState("")
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault()
-    console.log("submit", userText)
+    
+    const translation = await generateTranslation()
+    console.log("returned from server: ", translation)
+  }
+
+  const generateTranslation = async () => {
+    const response = await fetch("http://localhost:3005/generate", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({ userText: userText })
+    })
+
+    const data = await response.json()
+    return data
   }
 
   return (
