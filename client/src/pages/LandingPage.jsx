@@ -30,22 +30,22 @@ const LandingPage = () => {
     return (
         <Container>
             <h1>Translate text with Open AI</h1>
-            <form onSubmit={submitForm}>
+            <Form onSubmit={submitForm}>
                 <InputsBox>
-                    <div>
-                        <textarea
+                    <TextBoxes>
+                        <InputBox
                         name="user-text"
                         placeholder="Type to translate"
                         onChange={(e) => setUserText(e.target.value)}
                         />
-                        <div>
-                            <p>The transaltion is: {aiTranslation}</p>
-                        </div>
-                    </div>
+                        <Output>
+                            <p>{aiTranslation}</p>
+                        </Output>
+                    </TextBoxes>
                     <br></br>
                     <input type="submit" value="Generate translation" />
                 </InputsBox>
-            </form>
+            </Form>
     </Container>
     )
 }
@@ -56,9 +56,30 @@ flex-direction: column;
 align-items: center;
 `
 
+const Form = styled.form`
+width: 50%;
+min-width: 600px;
+`
+
 const InputsBox = styled.div`
 display: flex;
 flex-direction: column;
+`
+
+const TextBoxes = styled.div`
+    display: flex;
+    gap: 10px;
+`
+
+const InputBox = styled.textarea`
+    width: 50%;
+    height: 95px;
+`
+
+const Output = styled.div`
+    background-color: whitesmoke;
+    width: 50%;
+    height: 100px;
 `
 
 export default LandingPage;
