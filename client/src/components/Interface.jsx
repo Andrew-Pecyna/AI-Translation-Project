@@ -31,13 +31,13 @@ const Interface = () => {
         <Form onSubmit={submitForm}>
             <InputsBox>
                 <Languages>
-                    <select name="languages">
+                    <select name="language-one">
                         <option value="english">English</option>
                         <option value="french">French</option>
                         <option value="spanish">Spanish</option>
                         <option value="italian">Italian</option>
                     </select>
-                    <select name="languages">
+                    <select name="language-two">
                         <option value="french">French</option>
                         <option value="english">English</option>
                         <option value="spanish">Spanish</option>
