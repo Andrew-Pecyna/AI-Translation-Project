@@ -15,8 +15,10 @@ app.get("/", (request, response) => {
 
 app.post("/generate", async (request, response) => {
     const userText = request.body.userText
+    const languageOne = request.body.languageOne
+    const languageTwo = request.body.languageTwo
     try {
-        const translation = await generate(userText)
+        const translation = await generate(userText, languageOne, languageTwo)
         response.json({response: translation})
     } catch (error) {
         console.log(error)

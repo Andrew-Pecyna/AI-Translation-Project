@@ -8,15 +8,17 @@ const LandingPage = () => {
         <Container>
             <Navbar />
             <Interface />
-    </Container>
+        </Container>
     )
 }
 
 const Container = styled.div`
+height: 75vh;
+margin: 50px 0px;
 display: flex;
 flex-direction: column;
 align-items: center;
-background-color: lightyellow;
+/* background-color: whitesmoke; */
 `
 
 export default LandingPage;

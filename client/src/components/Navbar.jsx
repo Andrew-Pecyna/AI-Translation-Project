@@ -6,7 +6,10 @@ const Navbar = () => {
     return (
         <Container>
             <Div>
-                <h1>OpenAI Language Translator</h1>
+                <Span>
+                    <Img src="/translate.png"/>
+                    <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
+                </Span>
                 <LoginButton />
             </Div>
         </Container>
@@ -16,8 +19,9 @@ const Navbar = () => {
 const Container = styled.div`
 display: flex;
 justify-content: center;
-background-color: aliceblue;
+background-color: white;
 width: 100%;
+padding: 0px 0px 50px 0px;
 `
 
 const Div = styled.div`
@@ -25,6 +29,23 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 width: 90%;
+`
+
+const Span = styled.span`
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* background-color: lightblue; */
+`
+
+const Img = styled.img`
+    width: 75px;
+`
+
+const Title = styled.h1`
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: lighter;
+    font-size: 35px;
 `
 
 export default Navbar
