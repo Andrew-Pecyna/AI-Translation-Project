@@ -2,11 +2,23 @@ import styled from "styled-components";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
     const [formData, setFormData] = useState({})
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value}) 
+    }
+
+    const validatePassword = (event) => {
+        const password = document.getElementById("password")
+        const confirm = document.getElementById("retype")
+        console.log(password.value + " " + confirm.value)
+
+        if (password.value != confirm.value) {
+            confirm.setCustomValidity("Passwords Don't Match")
+        } else {
+            confirm.setCustomValidity('')
+        }
     }
 
     return (
@@ -19,19 +31,25 @@ const Login = () => {
                     </Span>
                     <FormContents>
                         <span>
+                            <Input type="email" id="email" name="email" placeholder="Email" onChange={handleChange} required></Input>
+                        </span>
+                        <span>
                             <Input type="text" id="userName" name="userName" placeholder="User Name" onChange={handleChange} required></Input>
                         </span>
                         <span>
                             <Input type="password" id="password" name="password" placeholder="Password" onChange={handleChange} required></Input>
                         </span>
                         <span>
-                            <Btn type="submit">Log in</Btn>
+                            <Input type="password" id="retype" name="retype" placeholder="Retype Password" onChange={validatePassword} required></Input>
+                        </span>
+                        <span>
+                            <Btn type="submit">Sign up</Btn>
                         </span>
                     </FormContents>
                 </Form>
             </FormBox>
             <SignUpBox>
-                <span>Dont have an account? <StyledNav to="/register">Sign Up</StyledNav></span>
+                <span>Already have an account? <StyledNav to="/login">Log in</StyledNav></span>
             </SignUpBox>
         </Container>
     )
@@ -88,7 +106,7 @@ font-size: 16px;
 `
 
 const Btn = styled.button`
-width: 237px;
+width: 238px;
 height: 40px;
 margin-top: 10px;
 background-color: dodgerblue;
@@ -101,7 +119,7 @@ font-size: 18px;
 const SignUpBox = styled.div`
 border: 1px solid gainsboro;
 margin-top: 20px;
-padding: 25px 106px;
+padding: 25px 101px;
 font-size: 18px;
 `
 
@@ -111,4 +129,4 @@ color: dodgerblue;
 font-weight: bold;
 `
 
-export default Login;
+export default Register;
