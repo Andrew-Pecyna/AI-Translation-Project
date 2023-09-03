@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import LoginButton from "./LoginButton"
 
-const Navbar = () => {
+const UserNav = () => {
 
     return (
         <Container>
@@ -10,7 +9,9 @@ const Navbar = () => {
                     <Img src="/translate.png"/>
                     <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
                 </Span>
-                <LoginButton />
+                <UserPic>
+                    <UserChar>A</UserChar>
+                </UserPic>
             </Div>
         </Container>
     )
@@ -21,7 +22,7 @@ display: flex;
 justify-content: center;
 background-color: white;
 width: 100%;
-padding: 0px 0px 50px 0px;
+padding: 40px 0px 50px 0px;
 `
 
 const Div = styled.div`
@@ -35,6 +36,26 @@ const Span = styled.span`
     display: flex;
     align-items: center;
     gap: 15px;
+    /* background-color: lightblue; */
+`
+
+const UserPic = styled.span`
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: lightblue;
+height: 100px;
+width: 100px;
+border-radius: 50%;
+
+&:hover{
+transform: scale(.97);
+}
+`
+
+const UserChar = styled.p`
+    color: white;
+    font-size: 50px;
 `
 
 const Img = styled.img`
@@ -47,4 +68,4 @@ const Title = styled.h1`
     font-size: 35px;
 `
 
-export default Navbar
+export default UserNav

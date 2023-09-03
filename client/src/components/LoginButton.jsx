@@ -1,18 +1,12 @@
 import { NavLink } from "react-router-dom"
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 const LoginButton = () => {
 
-    // const linkStyle = {
-    //     backgroundColor: "lightgrey",
-    //     color: "white",
-    //     textDecoration: "none",
-    //     padding: "15px 25px",
-    //     fontSize: "25px"
-    // }
-
     return (
-            <Login to="/login">Log In</Login>
+        <Login to="/login">
+            <span>Log In</span>
+        </Login>
     )
 }
 
