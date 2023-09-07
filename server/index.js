@@ -6,15 +6,23 @@ const app = express();
 
 // const router = require("./routes/archiveRoutes.js")
 
+import router from "./routes/archiveRoutes.js"
+
 app.use(express.json())
 app.use(cors());
-// app.use(router);
+app.use(router);
 
 const port = process.env.PORT || 3005;
 
 app.get("/", (request, response) => {
     response.send("hello world from our API")
 })
+
+app.get("*", (request, response) => {
+    return response
+    .status(404)
+    .json({ status: 404, message: "No endpoint found." });
+});
 
 app.post("/generate", async (request, response) => {
     const userText = request.body.userText
@@ -27,6 +35,10 @@ app.post("/generate", async (request, response) => {
         console.log(error)
         response.status(500).send("Internal Server Error")
     }
+})
+
+app.post("/testing", (request, response) => {
+    response.send("BLAh Blah") 
 })
 
 app.listen(port, () => {

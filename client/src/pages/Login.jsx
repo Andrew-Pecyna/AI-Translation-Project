@@ -96,6 +96,14 @@ color: white;
 border: none;
 border-radius: 5px;
 font-size: 18px;
+
+&:hover {
+background-color: blue;
+}
+
+&:active {
+transform: scale(0.99)
+}
 `
 
 const SignUpBox = styled.div`

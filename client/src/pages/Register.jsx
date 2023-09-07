@@ -1,8 +1,10 @@
+
 import styled from "styled-components";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({})
 
     const handleChange = (event) => {
@@ -21,9 +23,36 @@ const Register = () => {
         }
     }
 
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const formObject = { ...formData }
+
+            const newUserResponse = await fetch(`http://localhost:3005/api/post-user`,
+                {   
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formObject)
+                })
+                const data = await newUserResponse.json();
+                if (data.status === 200) {
+                    // window.sessionStorage.setItem("currentUser", JSON.stringify(data.data))
+                    // setCurrentUser(data.data)
+                    // navigate('/userHome')
+                    console.log("does this do somthing")
+                    navigate('/userhome')
+                }
+            } catch (error) {
+                console.log(error)
+            }
+
+    }
+
     return (
         <Container>
-            <FormBox>
+            <FormBox onSubmit={handleSubmit}>
                 <Form>
                     <Span>
                         <Img src="/translate.png"/>
@@ -114,6 +143,14 @@ color: white;
 border: none;
 border-radius: 5px;
 font-size: 18px;
+
+&:hover {
+background-color: blue;
+}
+
+&:active {
+transform: scale(0.99)
+}
 `
 
 const SignUpBox = styled.div`
