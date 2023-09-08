@@ -1,11 +1,12 @@
-
+import { useContext, useState } from "react";
+import { UserContext } from "../UserContext";
 import styled from "styled-components";
-import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({})
+    const {currentUser, setCurrentUser} = useContext(UserContext)
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value}) 
@@ -38,10 +39,9 @@ const Register = () => {
                 })
                 const data = await newUserResponse.json();
                 if (data.status === 200) {
-                    // window.sessionStorage.setItem("currentUser", JSON.stringify(data.data))
-                    // setCurrentUser(data.data)
-                    // navigate('/userHome')
-                    console.log("does this do somthing")
+                    window.sessionStorage.setItem("currentUser", JSON.stringify(data.data))
+                    setCurrentUser(data.data)
+                    console.log(data.data)
                     navigate('/userhome')
                 }
             } catch (error) {

@@ -4,8 +4,6 @@ import generate from "./generate.js";
 
 const app = express();
 
-// const router = require("./routes/archiveRoutes.js")
-
 import router from "./routes/archiveRoutes.js"
 
 app.use(express.json())
@@ -37,9 +35,6 @@ app.post("/generate", async (request, response) => {
     }
 })
 
-app.post("/testing", (request, response) => {
-    response.send("BLAh Blah") 
-})
 
 app.listen(port, () => {
     console.log(`listening on port ${port}`)

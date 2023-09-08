@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom"
+import { UserContext } from "../UserContext";
 import styled from 'styled-components';
 
 const UserNav = () => {
+    const {currentUser, setCurrentUser} = useContext(UserContext)
+    const navigate = useNavigate();
 
     return (
         <Container>
@@ -9,9 +14,19 @@ const UserNav = () => {
                     <Img src="/translate.png"/>
                     <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
                 </Span>
-                <UserPic>
-                    <UserChar>A</UserChar>
-                </UserPic>
+                <UserBox>
+                    <UserPic>
+                        <UserChar>A</UserChar>
+                    </UserPic>
+                    <StyledButton onClick={() => {
+                        window.sessionStorage.removeItem("currentUser")
+                        setCurrentUser(null)
+                        navigate('/')
+                    }}>
+                        <StyledImg src="/logout.png"/>
+                    </StyledButton>
+                </UserBox>
+                
             </Div>
         </Container>
     )
@@ -22,7 +37,7 @@ display: flex;
 justify-content: center;
 background-color: white;
 width: 100%;
-padding: 40px 0px 50px 0px;
+padding: 30px 0px 50px 0px;
 `
 
 const Div = styled.div`
@@ -32,11 +47,40 @@ justify-content: space-between;
 width: 90%;
 `
 
+const UserBox = styled.div`
+display: flex;
+flex-direction: column;
+`
+
+const StyledImg = styled.img`
+width: 25px;
+
+&:active {
+width: 26px;
+}
+`
+
+const StyledButton = styled.button`
+align-self: flex-end;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 35px;
+height: 35px;
+margin-top: 10px;
+border: none;
+background-color: white;
+
+&:hover {
+padding-left: 10px;
+}
+`
+
 const Span = styled.span`
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* background-color: lightblue; */
+display: flex;
+align-items: center;
+gap: 15px;
+/* background-color: lightblue; */
 `
 
 const UserPic = styled.span`

@@ -1,12 +1,10 @@
 import dotenv from "dotenv";
-// const { v4: uuidv4 } = require("uuid");
+import { v4 as uuidv4 } from 'uuid';
 
 dotenv.config();
 
 import mongodb from 'mongodb'
 const { MongoClient } = mongodb
-
-// const { MongoClient } = require("mongodb");
 const { MONGO_URI } = process.env;
 
 const getClient = async () => {
@@ -30,10 +28,10 @@ export const addUser = async (request, response) => {
         const db = client.db("translation_db");
 
         const formData = request.body
-        // const randomId = uuidv4()
+        const randomId = uuidv4()
 
         const newUser = {
-            // _id: randomId,
+            _id: randomId,
             email: formData.email,
             userName: formData.userName,
             password: formData.password
@@ -51,5 +49,4 @@ export const addUser = async (request, response) => {
 
 };
 
-// module.exports = { addUser };
 
