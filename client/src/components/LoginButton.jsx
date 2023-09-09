@@ -11,7 +11,8 @@ const LoginButton = () => {
 }
 
 const Login = styled(NavLink)`
-    font-size: 20px;
+    font-size: 18px;
+    font-family: Helvetica;
     background-color: lightgrey;
     padding: 12px 25px;
     text-decoration: none;

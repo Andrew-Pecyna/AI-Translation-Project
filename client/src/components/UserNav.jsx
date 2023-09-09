@@ -16,7 +16,7 @@ const UserNav = () => {
                 </Span>
                 <UserBox>
                     <UserPic>
-                        <UserChar>A</UserChar>
+                        <UserChar>{currentUser.userName[0]}</UserChar>
                     </UserPic>
                     <StyledButton onClick={() => {
                         window.sessionStorage.removeItem("currentUser")

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Interface from "../components/Interface";
+import RegisterSection from "../components/RegisterSection";
 
 const LandingPage = () => {
 
@@ -8,6 +9,7 @@ const LandingPage = () => {
         <Container>
             <Navbar />
             <Interface />
+            <RegisterSection />
         </Container>
     )
 }

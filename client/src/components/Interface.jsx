@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { CiBookmark } from "react-icons/ci";
+import { GoBookmarkFill } from "react-icons/go";
 import { useState } from 'react';
 
 const Interface = () => {
@@ -7,6 +9,7 @@ const Interface = () => {
     const [aiTranslation, setAiTranslation] = useState("")
     const [languageOne, setLanguageOne] = useState("English")
     const [languageTwo, setLanguageTwo] = useState("French")
+    const [saveSwitch, setSaveSwitch] = useState(false)
 
     const submitForm = async (e) => {
         e.preventDefault()
@@ -66,16 +69,38 @@ const Interface = () => {
                     placeholder="Type to translate"
                     onChange={(e) => setUserText(e.target.value)}
                     />
-                    <OutputBox value={aiTranslation} disabled>
+                    <OutputBox>
+                        <span>{aiTranslation}</span>
                     </OutputBox>
+                    <StyledIcon onClick={() => setSaveSwitch(!saveSwitch)}>
+                        {saveSwitch ? <CiBookmark /> : <GoBookmarkFill />}
+                    </StyledIcon>
                 </TextBoxes>
                 <br></br>
-                {/* <Submit type="submit" value=">" /> */}
             </InputsBox>
         </Form>
         
     )
 }
+
+const StyledIcon = styled.span`
+font-size: 22px;
+height: 25px;
+position: relative;
+right: 23px;
+top: 188px;
+color: gray;
+
+&:hover {
+    color: dodgerblue;
+}
+
+
+@media (max-width: 768px) {
+    right: -245px;
+    top: -25px;
+}
+`
 
 const Form = styled.form`
 width: 70%;
@@ -86,18 +111,15 @@ const InputsBox = styled.div`
 display: flex;
 flex-direction: column;
 background-color: white;
-/* border: 1px solid black; */
-/* border-radius: 5px; */
 `
 
 const Languages = styled.div`
-/* background-color: white; */
 padding: 10px 0px 20px 0px;
 display: flex;
 justify-content: center;
 gap: 17%;
 
-@media (max-width: 950px) {
+@media (max-width: 768px) {
     gap: 10%;
 }
 `
@@ -122,6 +144,7 @@ const InputBox = styled.textarea`
     width: 50%;
     height: 200px;
     resize: none;
+    font-family: 'Courier New', Courier, monospace;
     border: 2px solid cornflowerblue;
     font-size: 18px;
     padding: 5px;
@@ -131,9 +154,10 @@ const InputBox = styled.textarea`
 }
 `
 
-const OutputBox = styled.textarea`
+const OutputBox = styled.div`
     width: 50%;
     height: 200px;
+    font-family: 'Courier New', Courier, monospace;
     background-color: whitesmoke;
     resize: none;
     border: 2px solid lightgrey;
@@ -153,14 +177,8 @@ const Submit = styled.input`
     border: none;
 
     &:hover {
-    background-color: cornflowerblue; 
+    background-color: #1F51FF; 
     }
 `
-
-// const Output = styled.div`
-//     background-color: whitesmoke;
-//     width: 50%;
-//     height: 100px;
-// `
 
 export default Interface;
