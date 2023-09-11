@@ -9,7 +9,7 @@
 - Generate translations using ChatGPT AI technology
 - Select from a number of available source and target languages
 - Registered users may save translations to their account
-- Profile space where uses may organize translations by category for easy refrence
+- Profile space where uses may organize translations by category for easy reference
   
 ## APIs
   
