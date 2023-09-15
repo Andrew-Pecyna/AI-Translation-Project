@@ -44,6 +44,29 @@ const Interface = () => {
         }
     };
 
+    const handleSave = async (e) => {
+
+        try {
+            const translationPostRes = await fetch(`http://localhost:3005/api/post-translation`,
+                {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    translation: aiTranslation
+                })
+                })
+                const data = await translationPostRes.json();
+                if (data.status === 200) {
+                    console.log(data.message)
+                    setSaveSwitch(true)
+                    setAiTranslation("")
+                }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
     return (
         <Form onSubmit={submitForm}>
             <InputsBox>
@@ -72,8 +95,8 @@ const Interface = () => {
                     <OutputBox>
                         <span>{aiTranslation}</span>
                     </OutputBox>
-                    <StyledIcon onClick={() => setSaveSwitch(!saveSwitch)}>
-                        {saveSwitch ? <CiBookmark /> : <GoBookmarkFill />}
+                    <StyledIcon onClick={handleSave}>
+                        {saveSwitch ? <GoBookmarkFill /> : <CiBookmark />}
                     </StyledIcon>
                 </TextBoxes>
                 <br></br>

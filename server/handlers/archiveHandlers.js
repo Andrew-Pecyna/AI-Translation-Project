@@ -50,3 +50,30 @@ export const addUser = async (request, response) => {
 };
 
 
+// Adds new translation to user profile
+
+export const addTranslation = async (request, response) => {
+    const client = await getClient();
+    
+    try {
+        await client.connect();
+        const db = client.db("translation_db");
+
+        const translationData = request.body
+        const randomId = uuidv4()
+
+        const newTranslation = { _id: randomId, ...translationData}
+        
+        await db.collection("archives").insertOne(newTranslation);
+
+        return response.status(200).json({ status: 200, message: "Translation added to archives collection", data: newTranslation });
+
+    } catch (error) {
+        console.log(error.message)
+    } finally {
+        await client.close();
+    }
+
+};
+
+

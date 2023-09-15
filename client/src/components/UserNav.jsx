@@ -10,12 +10,12 @@ const UserNav = () => {
     return (
         <Container>
             <Div>
-                <Span>
+                <Span onClick={() => navigate('/userHome')}>
                     <Img src="/translate.png"/>
                     <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
                 </Span>
                 <UserBox>
-                    <UserPic>
+                    <UserPic onClick={() => navigate('/userProfile')}>
                         <UserChar>{currentUser.userName[0]}</UserChar>
                     </UserPic>
                     <StyledButton onClick={() => {
@@ -92,14 +92,18 @@ height: 100px;
 width: 100px;
 border-radius: 50%;
 
-&:hover{
+&:hover {
 transform: scale(.97);
+}
+
+&:active {
+margin-right: 3px;
 }
 `
 
 const UserChar = styled.p`
-    color: white;
-    font-size: 50px;
+color: white;
+font-size: 50px;
 `
 
 const Img = styled.img`
@@ -112,4 +116,4 @@ const Title = styled.h1`
     font-size: 35px;
 `
 
-export default UserNav
+export default UserNav;
