@@ -12,7 +12,7 @@ const UserNav = () => {
             <Div>
                 <Span onClick={() => navigate('/userHome')}>
                     <Img src="/translate.png"/>
-                    <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
+                    <Title>transl<StyledSpan>(ai)</StyledSpan>te</Title>
                 </Span>
                 <UserBox>
                     <UserPic onClick={() => navigate('/userProfile')}>
@@ -31,6 +31,13 @@ const UserNav = () => {
         </Container>
     )
 }
+
+const StyledSpan = styled.span`
+background-color: #FFF700;
+padding: 5px 0px;
+margin: 0px 2px;
+border: 2px solid black;
+`
 
 const Container = styled.div`
 display: flex;

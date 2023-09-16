@@ -8,13 +8,20 @@ const Navbar = () => {
             <Div>
                 <Span>
                     <Img src="/translate.png"/>
-                    <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
+                    <Title>transl<StyledSpan>ai</StyledSpan>te</Title>
                 </Span>
                 <LoginButton />
             </Div>
         </Container>
     )
 }
+
+const StyledSpan = styled.span`
+background-color: orange;
+padding: 5px 0px;
+margin: 0px 2px;
+border: 2px solid black;
+`
 
 const Container = styled.div`
 display: flex;

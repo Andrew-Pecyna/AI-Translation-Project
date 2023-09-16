@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { CiBookmark } from "react-icons/ci";
 import { GoBookmarkFill } from "react-icons/go";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+// import { useNavigate } from "react-router-dom"
+import { UserContext } from "../UserContext";
 
 const Interface = () => {
 
@@ -10,6 +12,8 @@ const Interface = () => {
     const [languageOne, setLanguageOne] = useState("English")
     const [languageTwo, setLanguageTwo] = useState("French")
     const [saveSwitch, setSaveSwitch] = useState(false)
+    const {currentUser, setCurrentUser} = useContext(UserContext)
+    // const navigate = useNavigate();
 
     const submitForm = async (e) => {
         e.preventDefault()
@@ -31,8 +35,8 @@ const Interface = () => {
                 languageTwo: languageTwo
             })
         })
-
-    const data = await response.json()
+        
+        const data = await response.json()
         return data
     }
 
@@ -45,6 +49,7 @@ const Interface = () => {
     };
 
     const handleSave = async (e) => {
+        e.preventDefault()
 
         try {
             const translationPostRes = await fetch(`http://localhost:3005/api/post-translation`,
@@ -52,6 +57,8 @@ const Interface = () => {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
+                    user: currentUser.userName,
+                    input: userText,
                     translation: aiTranslation
                 })
                 })
@@ -59,7 +66,8 @@ const Interface = () => {
                 if (data.status === 200) {
                     console.log(data.message)
                     setSaveSwitch(true)
-                    setAiTranslation("")
+                    // setAiTranslation("")
+                    // setUserText("")
                 }
         } catch (error) {
             console.log(error)
@@ -186,6 +194,7 @@ const OutputBox = styled.div`
     border: 2px solid lightgrey;
     font-size: 18px;
     padding: 5px;
+    overflow: scroll;
 
     @media (max-width: 768px) {
     width: 500px;
@@ -195,7 +204,8 @@ const OutputBox = styled.div`
 const Submit = styled.input`
     font-size: 30px;
     min-width: 70px;
-    background-color: dodgerblue;
+    /* background-color: dodgerblue; */
+    background-color: gray;
     color: white;
     border: none;
 

@@ -77,3 +77,32 @@ export const addTranslation = async (request, response) => {
 };
 
 
+// GETS all archived translations of current user
+
+export const getUserTranslations = async (request, response) => {
+    const client = await getClient();
+
+    try {
+        await client.connect();
+        const db = client.db("translation_db");
+        const archivesCollection = db.collection("archives");
+
+        let mongoQuery = {};
+        if (request.query.user) {
+            mongoQuery["user"] = request.params.user;
+        }
+        
+        const userTranslationData = await archivesCollection.find({ user: request.params.user }).toArray();
+
+        userTranslationData ? response.status(200).json({ status: 200, data: userTranslationData }) :
+        response.status(404).json({ status: 404, message: "User translation data does not exist", data: undefined })
+
+    } catch (error) {
+        console.log(error.message)
+    } finally {
+        await client.close();
+    }
+
+}
+
+
