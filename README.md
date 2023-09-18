@@ -18,5 +18,5 @@
 ### Translation Interface
 
 <kbd>
-<img width="959" alt="translaite" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/29363c12-c5c5-4a7e-8aa5-d226f1d70ca8">
+<img width="977" alt="Transl(ai)te 2" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/54641f3e-a6fa-492a-8282-934c27a2c682">
 </kbd>
