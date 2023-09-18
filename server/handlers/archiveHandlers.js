@@ -77,7 +77,7 @@ export const addTranslation = async (request, response) => {
 };
 
 
-// GETS all archived translations of current user
+// GET all archived translations of current user
 
 export const getUserTranslations = async (request, response) => {
     const client = await getClient();
@@ -106,3 +106,29 @@ export const getUserTranslations = async (request, response) => {
 }
 
 
+// POST - checking if user has an account
+
+
+export const checkUser = async (request, response) => {
+    const client = await getClient();
+
+    try {
+        await client.connect();
+        const db = client.db("translation_db");
+
+        const formData = request.body
+        
+        // const { email } = request.params
+        
+        const userData = await db.collection("users").findOne({ userName: formData.userName });
+
+        userData ? response.status(200).json({ status: 200, data: userData }) :
+        response.status(404).json({ status: 404, message: "User does not exist", data: undefined })
+
+    } catch (error) {
+        console.log(error.message)
+    } finally {
+        await client.close();
+    }
+
+}

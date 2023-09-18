@@ -6,8 +6,8 @@ const SingleTranslation = ({translationData}) => {
         <>
             {translationData.map((each) => {
                 return <SpanBox>
-                    <p><FontSpan>Source: </FontSpan>{each.input}</p>
-                    <p><FontSpan>Target: </FontSpan>{each.translation}</p>
+                    <p><FontSpan>{each.source}: </FontSpan>{each.input}</p>
+                    <p><FontSpan>{each.target}: </FontSpan>{each.translation}</p>
                 </SpanBox>
             })}
         </>

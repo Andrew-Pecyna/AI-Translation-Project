@@ -59,7 +59,9 @@ const Interface = () => {
                 body: JSON.stringify({
                     user: currentUser.userName,
                     input: userText,
-                    translation: aiTranslation
+                    translation: aiTranslation,
+                    source: languageOne,
+                    target: languageTwo
                 })
                 })
                 const data = await translationPostRes.json();

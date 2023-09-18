@@ -1,18 +1,46 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useContext } from "react";
+import { UserContext } from "../UserContext";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({})
+    const {currentUser, setCurrentUser} = useContext(UserContext)
 
     const handleChange = (event) => {
         setFormData({...formData, [event.target.id]: event.target.value}) 
     }
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const formObject = { ...formData }
+
+            const UserResponse = await fetch(`http://localhost:3005/api/check-user`,
+                {   
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formObject)
+                })
+                const data = await UserResponse.json();
+                if (data.status === 200) {
+                    window.sessionStorage.setItem("currentUser", JSON.stringify(data.data))
+                    setCurrentUser(data.data)
+                    console.log(data.data)
+                    navigate('/userhome')
+                }
+            } catch (error) {
+                console.log(error)
+            }
+
+    }
+
     return (
         <Container>
             <FormBox>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Span>
                         <Img src="/translate.png"/>
                         <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
