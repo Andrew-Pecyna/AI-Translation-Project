@@ -43,7 +43,7 @@ const Login = () => {
                 <Form onSubmit={handleSubmit}>
                     <Span>
                         <Img src="/translate.png"/>
-                        <Title>transl(<span style={{color: "orange"}}>ai</span>)te</Title>
+                        <Title>transl<StyledSpan>ai</StyledSpan>te</Title>
                     </Span>
                     <FormContents>
                         <span>
@@ -64,6 +64,13 @@ const Login = () => {
         </Container>
     )
 }
+
+const StyledSpan = styled.span`
+background-color: orange;
+padding: 5px 0px;
+margin: 0px 2px;
+border: 2px solid black;
+`
 
 const Container = styled.div`
 height: 75vh;
@@ -137,7 +144,7 @@ transform: scale(0.99)
 const SignUpBox = styled.div`
 border: 1px solid gainsboro;
 margin-top: 20px;
-padding: 25px 106px;
+padding: 25px 89px;
 font-size: 18px;
 `
 

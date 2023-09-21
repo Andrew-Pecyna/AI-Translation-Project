@@ -12,7 +12,7 @@ const UserNav = () => {
             <Div>
                 <Span onClick={() => navigate('/userHome')}>
                     <Img src="/translate.png"/>
-                    <Title>transl<StyledSpan>(ai)</StyledSpan>te</Title>
+                    <Title>transl<StyledSpan>ai</StyledSpan>te</Title>
                 </Span>
                 <UserBox>
                     <UserPic onClick={() => navigate('/userProfile')}>
@@ -33,7 +33,7 @@ const UserNav = () => {
 }
 
 const StyledSpan = styled.span`
-background-color: #FFF700;
+background-color: orange;
 padding: 5px 0px;
 margin: 0px 2px;
 border: 2px solid black;
@@ -87,14 +87,13 @@ const Span = styled.span`
 display: flex;
 align-items: center;
 gap: 15px;
-/* background-color: lightblue; */
 `
 
 const UserPic = styled.span`
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: lightblue;
+background-color: lightgreen;
 height: 100px;
 width: 100px;
 border-radius: 50%;
