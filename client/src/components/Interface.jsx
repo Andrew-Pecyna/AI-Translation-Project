@@ -12,6 +12,7 @@ const Interface = () => {
     const [languageOne, setLanguageOne] = useState("English")
     const [languageTwo, setLanguageTwo] = useState("French")
     const [saveSwitch, setSaveSwitch] = useState(false)
+    const [tagSwitch, setTagSwitch] = useState(false)
     const {currentUser, setCurrentUser} = useContext(UserContext)
     // const navigate = useNavigate();
 
@@ -105,16 +106,40 @@ const Interface = () => {
                     <OutputBox>
                         <span>{aiTranslation}</span>
                     </OutputBox>
-                    <StyledIcon onClick={handleSave}>
+                    <StyledIcon onClick={() => setTagSwitch(!tagSwitch)}>
                         {saveSwitch ? <GoBookmarkFill /> : <CiBookmark />}
                     </StyledIcon>
                 </TextBoxes>
                 <br></br>
+                <TagBox>
+                    {tagSwitch && <TagForm>
+                        <input type="text" name="tag" placeholder="Optional tag"/>
+                        <button>save</button>
+                    </TagForm>}
+                </TagBox>
             </InputsBox>
         </Form>
         
     )
 }
+
+const TagForm = styled.form`
+display: flex;
+gap: 5px;
+padding: 10px;
+background-color: #F3F8FC;
+border: 2px solid gainsboro;
+`
+
+const TagBox = styled.div`
+align-self: flex-end;
+margin-right: 25px;
+
+@media (max-width: 768px) {
+margin-right: 95px;
+margin-top: -25px;
+}
+`
 
 const StyledIcon = styled.span`
 font-size: 22px;

@@ -30,6 +30,9 @@ const TranslationArchive = () => {
     return (
         !userTranslations ? <p>loading...</p>
         :<Wrapper>
+            <TagDiv>
+                <TagSpan>Recent</TagSpan>
+            </TagDiv>
             <SingleTranslation translationData={userTranslations}/>
         </Wrapper>
     )
@@ -41,4 +44,17 @@ flex-direction: column;
 width: 65%;
 min-width: 500px;
 `
+
+const TagSpan = styled.span`
+font-family: Arial, Helvetica, sans-serif;
+background-color: cornflowerblue;
+padding: 5px 15px;
+color: white;
+border-radius: 2px;
+`
+
+const TagDiv = styled.div`
+margin: 15px 0px;
+`
+
 export default TranslationArchive;
