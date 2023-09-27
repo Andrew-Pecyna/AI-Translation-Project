@@ -6,6 +6,8 @@ import SingleTranslation from './SingleTranslation';
 const TranslationArchive = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext)
     const [userTranslations, setUserTranslations] = useState(undefined)
+    const [tagKeys, setTagKeys] = useState("")
+
 
     useEffect(() => {
         const getUserTranslations = async () => {
@@ -16,6 +18,8 @@ const TranslationArchive = () => {
                 const recentOrder = translationData.reverse()
 
                 setUserTranslations(recentOrder)
+                const unique = [...new Set(recentOrder.map(item => item.tag))]
+                setTagKeys(unique)
 
             } catch (error) {
                 console.log(error)
@@ -25,13 +29,18 @@ const TranslationArchive = () => {
 
     }, [])
 
-    console.log(userTranslations)
+    console.log(tagKeys)
 
     return (
         !userTranslations ? <p>loading...</p>
         :<Wrapper>
             <TagDiv>
                 <TagSpan>Recent</TagSpan>
+                {tagKeys.map((each) => {
+                    if (each != undefined) {
+                        return <TagSpan>{each}</TagSpan>
+                    }
+                })}
             </TagDiv>
             <SingleTranslation translationData={userTranslations}/>
         </Wrapper>
@@ -47,9 +56,10 @@ min-width: 500px;
 
 const TagSpan = styled.span`
 font-family: Arial, Helvetica, sans-serif;
-background-color: cornflowerblue;
+background-color: #F3F8FC;
 padding: 5px 15px;
-color: white;
+margin-right: 5px;
+color: gray;
 border-radius: 2px;
 `
 

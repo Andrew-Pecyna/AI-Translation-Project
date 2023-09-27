@@ -8,6 +8,7 @@ import { UserContext } from "../UserContext";
 const Interface = () => {
 
     const [userText, setUserText] = useState("")
+    const [tagText, setTagText] = useState("")
     const [aiTranslation, setAiTranslation] = useState("")
     const [languageOne, setLanguageOne] = useState("English")
     const [languageTwo, setLanguageTwo] = useState("French")
@@ -62,15 +63,18 @@ const Interface = () => {
                     input: userText,
                     translation: aiTranslation,
                     source: languageOne,
-                    target: languageTwo
+                    target: languageTwo,
+                    tag: tagText
                 })
                 })
                 const data = await translationPostRes.json();
                 if (data.status === 200) {
                     console.log(data.message)
                     setSaveSwitch(true)
+                    setTagSwitch(false)
                     // setAiTranslation("")
                     // setUserText("")
+                    // resetting interface ^^
                 }
         } catch (error) {
             console.log(error)
@@ -112,9 +116,9 @@ const Interface = () => {
                 </TextBoxes>
                 <br></br>
                 <TagBox>
-                    {tagSwitch && <TagForm>
-                        <input type="text" name="tag" placeholder="Optional tag"/>
-                        <button>save</button>
+                    {tagSwitch && <TagForm onSubmit={handleSave}>
+                        <input type="text" name="tag" placeholder="Optional tag" onChange={(e) => setTagText(e.target.value)}/>
+                        <button onClick={handleSave}>save</button>
                     </TagForm>}
                 </TagBox>
             </InputsBox>

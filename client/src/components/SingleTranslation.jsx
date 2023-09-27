@@ -5,10 +5,12 @@ const SingleTranslation = ({translationData}) => {
     return (
         <>
             {translationData.map((each) => {
-                return <SpanBox>
+                return (
+                <SpanBox key={each._id}>
                     <p><FontSpan>{each.source}: </FontSpan>{each.input}</p>
                     <p><FontSpan>{each.target}: </FontSpan>{each.translation}</p>
                 </SpanBox>
+                )
             })}
         </>
     )

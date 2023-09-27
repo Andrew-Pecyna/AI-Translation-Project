@@ -93,7 +93,7 @@ const UserPic = styled.span`
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: lightgreen;
+background-color: #FFFF8F;
 height: 100px;
 width: 100px;
 border-radius: 50%;
