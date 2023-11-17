@@ -29,6 +29,7 @@ margin-top: 25px;
 border-radius: 5px;
 width: 50%;
 min-width: 700px;
+box-shadow: 0 0 5px 0px #48abe0;
 
 @media (max-width: 1100px) {
     min-width: 600px;
