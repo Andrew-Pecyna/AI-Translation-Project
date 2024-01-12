@@ -38,7 +38,7 @@ const TranslationArchive = () => {
                 <TagSpan>Recent</TagSpan>
                 {tagKeys.map((each) => {
                     if (each != undefined && each != "") {
-                        return <TagSpan>{each}</TagSpan>
+                        return <TagSpan key={each}>{each}</TagSpan>
                     }
                 })}
             </TagDiv>
