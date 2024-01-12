@@ -15,11 +15,15 @@ const LandingPage = () => {
 }
 
 const Container = styled.div`
-height: 75vh;
+height: 95vh;
 margin: 50px 0px;
 display: flex;
 flex-direction: column;
 align-items: center;
+
+@media (max-width: 768px) {
+margin-bottom: 250px;
+}
 `
 
 export default LandingPage;

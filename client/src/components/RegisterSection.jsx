@@ -23,13 +23,14 @@ const RegisterSection = () => {
 const Wrapper = styled.div`
 display: flex;
 justify-content: center;
-/* background-color: lavender; */
-background-color: aliceblue;
+background-color: lavender;
+/* background-color: aliceblue; */
 margin-top: 25px;
 border-radius: 5px;
 width: 50%;
 min-width: 700px;
-box-shadow: 0 0 5px 0px #48abe0;
+/* box-shadow: 0 0 5px 0px #48abe0; */
+box-shadow: 0 0 5px 0px #A37BCE ;
 
 @media (max-width: 1100px) {
     min-width: 600px;
@@ -52,8 +53,8 @@ margin-top: 20px;
 `
 
 const NewSpan = styled.span`
-/* background-color: blueviolet; */
-background-color: lightskyblue;
+background-color: blueviolet;
+/* background-color: lightskyblue; */
 color: white;
 font-size: 13px;
 font-weight: bold;
@@ -76,7 +77,7 @@ const StyledBtn = styled.button`
 padding: 10px 30px;
 font-size: 20px;
 font-weight: bolder;
-background-color: dodgerblue;
+background-color: #A37BCE;
 color: white;
 border: none;
 
