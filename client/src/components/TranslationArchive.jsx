@@ -7,6 +7,7 @@ const TranslationArchive = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext)
     const [userTranslations, setUserTranslations] = useState(undefined)
     const [tagKeys, setTagKeys] = useState("")
+    const [currentTag, setCurrentTag] = useState("Recent")
 
 
     useEffect(() => {
@@ -29,7 +30,8 @@ const TranslationArchive = () => {
 
     }, [])
 
-    console.log(tagKeys)
+    console.log(currentTag)
+    
 
     return (
         !userTranslations ? <p>loading...</p>
@@ -38,7 +40,7 @@ const TranslationArchive = () => {
                 <TagSpan>Recent</TagSpan>
                 {tagKeys.map((each) => {
                     if (each != undefined && each != "") {
-                        return <TagSpan key={each}>{each}</TagSpan>
+                        return <TagSpan onClick={() => setCurrentTag(each)} key={each}>{each}</TagSpan>
                     }
                 })}
             </TagDiv>
