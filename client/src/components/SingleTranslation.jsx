@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
-const SingleTranslation = ({translationData}) => {
+const SingleTranslation = ({currentTag, translationData}) => {
 
     return (
         <>
             {translationData.map((each) => {
-                return (
-                <SpanBox key={each._id}>
-                    <p><FontSpan>{each.source}: </FontSpan>{each.input}</p>
-                    <p><FontSpan>{each.target}: </FontSpan>{each.translation}</p>
-                </SpanBox>
-                )
+                if (each.tag != undefined && each.tag === currentTag) {
+                    return (
+                        <SpanBox key={each._id}>
+                            <p><FontSpan>{each.source}: </FontSpan>{each.input}</p>
+                            <p><FontSpan>{each.target}: </FontSpan>{each.translation}</p>
+                        </SpanBox>
+                        )
+                } else if (currentTag === "Recent") {
+                    return (
+                        <SpanBox key={each._id}>
+                            <p><FontSpan>{each.source}: </FontSpan>{each.input}</p>
+                            <p><FontSpan>{each.target}: </FontSpan>{each.translation}</p>
+                        </SpanBox>
+                        )
+                }
             })}
         </>
     )

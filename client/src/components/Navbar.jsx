@@ -28,7 +28,7 @@ display: flex;
 justify-content: center;
 background-color: white;
 width: 100%;
-padding: 0px 0px 50px 0px;
+padding: 0px 0px 30px 0px;
 `
 
 const Div = styled.div`

@@ -31,20 +31,24 @@ const TranslationArchive = () => {
     }, [])
 
     console.log(currentTag)
+
+    const activeStyle = {
+        backgroundColor : "blue"
+    }
     
 
     return (
         !userTranslations ? <p>loading...</p>
         :<Wrapper>
             <TagDiv>
-                <TagSpan>Recent</TagSpan>
+                <TagSpan onClick={() => setCurrentTag("Recent")}>Recent</TagSpan>
                 {tagKeys.map((each) => {
                     if (each != undefined && each != "") {
                         return <TagSpan onClick={() => setCurrentTag(each)} key={each}>{each}</TagSpan>
                     }
                 })}
             </TagDiv>
-            <SingleTranslation translationData={userTranslations}/>
+            <SingleTranslation currentTag={currentTag} translationData={userTranslations}/>
         </Wrapper>
     )
 }
