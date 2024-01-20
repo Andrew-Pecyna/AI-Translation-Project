@@ -20,3 +20,9 @@
 <kbd>
 <img width="977" alt="Transl(ai)te 2" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/54641f3e-a6fa-492a-8282-934c27a2c682">
 </kbd>
+
+### User Trasnlation Interface
+
+<kbd>
+<img width="1215" alt="Screen Shot 2024-01-20 at 3 34 00 PM" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/63729ab2-95f8-44ad-bc91-dc2ec3f61de9">
+</kbd>
