@@ -18,5 +18,13 @@
 ### Translation Interface
 
 <kbd>
-<img width="977" alt="Transl(ai)te 2" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/54641f3e-a6fa-492a-8282-934c27a2c682">
+<img width="978" alt="Landing-page" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/a70e51fe-f097-4095-bc53-2717c0646c60">
+</kbd>
+
+### User Translation Interface
+
+- Save and classify translations with custom tags within user space
+
+<kbd>
+<img width="1284" alt="Screen Shot 2024-01-20 at 3 38 17 PM" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/00a8acae-7f45-484c-8c5e-0e47cb144281">
 </kbd>
