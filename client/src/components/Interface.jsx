@@ -235,7 +235,6 @@ const OutputBox = styled.div`
 const Submit = styled.input`
     font-size: 30px;
     min-width: 70px;
-    /* background-color: dodgerblue; */
     background-color: gray;
     color: white;
     border: none;
