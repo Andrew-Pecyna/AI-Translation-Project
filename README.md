@@ -28,3 +28,19 @@
 <kbd>
 <img width="1284" alt="Screen Shot 2024-01-20 at 3 38 17 PM" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/00a8acae-7f45-484c-8c5e-0e47cb144281">
 </kbd>
+
+### User's Translation Archive
+
+- User's translations are archived in their profile space, in order of most recent by default
+
+<kbd>
+<img width="1089" alt="Screen Shot 2024-02-01 at 5 15 02 PM" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/2690af0f-a596-40c6-8149-e92559ef65db">
+</kbd>
+
+### Archive Categories
+
+- User's can sort their translations with the tags they saved them by
+
+<kbd>
+<img width="1086" alt="Screen Shot 2024-02-01 at 5 15 47 PM" src="https://github.com/Andrew-Pecyna/AI-Translation-Project/assets/122415068/7ccbd426-8052-4d41-8861-7eeda24b449b">
+</kbd>
