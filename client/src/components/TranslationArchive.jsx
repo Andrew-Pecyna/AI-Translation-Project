@@ -62,12 +62,16 @@ font-family: Arial, Helvetica, sans-serif;
 background-color: #F3F8FC;
 padding: 5px 15px;
 margin-right: 5px;
+margin-bottom: 5px;
 color: gray;
 border-radius: 2px;
 `
 
 const TagDiv = styled.div`
-margin: 15px 0px;
+margin: 10px 0px;
+display: flex;
+flex-wrap: wrap ;
+
 `
 
 export default TranslationArchive;
